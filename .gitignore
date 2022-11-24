@@ -1,0 +1,4 @@
+__pycache__/
+
+stub/
+*.egg-info/
