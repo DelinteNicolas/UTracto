@@ -6,7 +6,25 @@ from dipy.io.streamline import load_tractogram, save_tractogram
 from TIME.core import angle_difference
 
 
-def _flip_m_neg(sh, sh_order, full_basis=False):
+def _flip_m_neg(sh, sh_order: int, full_basis: bool = False):
+    '''
+
+
+    Parameters
+    ----------
+    sh : 4-D array
+        Spherical harmonics coefficient array of shape (x,y,z,coeff).
+    sh_order : int
+        Order of the spherical harmonics.
+    full_basis : bool, optional
+        If True, takes a full basis as input. The default is False.
+
+    Returns
+    -------
+    sh : 4-D array
+        Spherical harmonics coefficient array of shape (x,y,z,coeff).
+
+    '''
 
     counter = 0
     for l in range(sh_order.astype(int)):
@@ -28,16 +46,18 @@ def _flip_m_neg(sh, sh_order, full_basis=False):
 
 def dipy_fod_to_mrtrix(sh):
     '''
-    Does not work with full basis, only symmetrical SH
+    Converts spherical harmonics (sh) file from dipy format to mrtrix format.
+    Does not work with full basis, only symmetrical SH.
 
     Parameters
     ----------
-    sh : TYPE
-        DESCRIPTION.
+    sh : 4-D array
+        Spherical harmonics coefficient array of shape (x,y,z,coeff).
 
     Returns
     -------
-    None.
+    sh : 4-D array
+        Spherical harmonics coefficient array of shape (x,y,z,coeff).
 
     '''
 
@@ -57,16 +77,18 @@ def dipy_fod_to_mrtrix(sh):
 
 def mrtrix_fod_to_dipy(sh):
     '''
-    Does not work with full basis, only symmetrical SH
+    Converts spherical harmonics (sh) file from mrtrix format to dipy format.
+    Does not work with full basis, only symmetrical SH.
 
     Parameters
     ----------
-    sh : TYPE
-        DESCRIPTION.
+    sh : 4-D array
+        Spherical harmonics coefficient array of shape (x,y,z,coeff).
 
     Returns
     -------
-    None.
+    sh : 4-D array
+        Spherical harmonics coefficient array of shape (x,y,z,coeff).
 
     '''
 
