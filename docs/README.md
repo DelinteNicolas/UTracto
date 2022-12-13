@@ -4,7 +4,7 @@ Welcome to the UTracto's Github repository!
 
 ## Description
 
-This repository contains a package facilitating the tracking of sub-cortical U-Fibers. The main function of this package is the creation of angular maps, enabling a tractography with a position-dependent maximum angle between tractography steps. The function creating these angular maps is `wmfod_to_angle` in the `core.py` file.
+This repository contains a package facilitating the tracking of sub-cortical U-Fibers. The main function of this package is the creation of angular maps, enabling a tractography with a position-dependent maximum angle between tractography steps. The function creating these angular maps is `wmfod_to_angle` in the [`core.py`](https://github.com/DelinteNicolas/UTracto/blob/main/utracto/core.py) file.
 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/70629561/207111838-6ec3ba60-fd52-47ad-a469-17a29df74513.png" width="600" />
