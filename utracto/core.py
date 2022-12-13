@@ -20,32 +20,35 @@ def wmfod_to_angle(wmfod, max_value: int = 30, min_value: int = 15,
     Parameters
     ----------
     wmfod : 4-D array of shape (x,y,z,sh)
-        DESCRIPTION.
+        Array containg the white matter FOD's spherical harmonics coefficients.
     max_value : int, optional
-        DESCRIPTION. The default is 15.
+        Maximum value of the tractography angle. The default is 15.
     min_value : int, optional
-        DESCRIPTION. The default is 30.
+        Minimum value of the tractography angle. The default is 30.
     wm_edge : float, optional
-        DESCRIPTION. The default is 0.1.
+        Minimum value of wmfod[:,:,:,0] to be considered as white mater.
+        The default is 0.1.
     interface : float, optional
-        DESCRIPTION. The default is 0.08.
+        Value of wmfod[:,:,:,0] to be considered at the interface between grey
+        and white mater. The default is 0.08.
     interface_thickness : int, optional
-        DESCRIPTION. The default is 3.
+        Thickness of the grey/white matter interface. The default is 3.
     wm_deep : TYPE, optional
-        DESCRIPTION. The default is 0.35.
+        Value above which we are in deep white matter. The default is 0.35.
     smooth_factor : float, optional
-        DESCRIPTION. The default is .85.
+        Gaussian filter factor. The default is .85.
     float_type : bool, optional
-        DESCRIPTION. The default is False.
+        If True then output is in float. The default is False.
     only_WM : bool, optional
-        DESCRIPTION. The default is False.
+        If True, the angular map is only in areas of white matter.
+        The default is False.
 
     Returns
     -------
     angle_array : 3-D array of shape (x,y,z)
-        DESCRIPTION.
-    params : TYPE
-        DESCRIPTION.
+        Angular map containing the position-dependent maximum angles.
+    params : dict
+        Dictionnary of parameters used.
 
     """
 
