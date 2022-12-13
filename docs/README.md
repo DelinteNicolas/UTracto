@@ -18,7 +18,7 @@ This angular map is to be used with a forked version of [DIPY](https://github.co
 
 If you want to download the latest version directly from GitHub, you can clone this repository
 ```
-git clone https://github.com/DelinteNicolas/TIME.git
+git clone https://github.com/DelinteNicolas/UTracto.git
 ```
 
 ## Example data and code
