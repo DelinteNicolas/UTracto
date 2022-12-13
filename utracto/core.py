@@ -15,7 +15,7 @@ def wmfod_to_angle(wmfod, max_value: int = 30, min_value: int = 15,
                    smooth_factor: float = .85, float_type: bool = False,
                    only_WM: bool = False):
     """
-
+    Creates an angular map based on the white matter FOD.
 
     Parameters
     ----------
