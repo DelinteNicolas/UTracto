@@ -6,7 +6,7 @@
 
 import numpy as np
 from scipy.ndimage import gaussian_filter
-from biname.utils import erosion
+from binama.utils import erosion
 
 
 def wmfod_to_angle(wmfod, max_value: int = 30, min_value: int = 15,
