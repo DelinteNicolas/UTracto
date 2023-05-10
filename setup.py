@@ -28,6 +28,7 @@ setup(
                       'nibabel',
                       'numpy',
                       'tqdm',
+			    'binama',
                       ],
 
     classifiers=['Development Status :: 4 - Beta',
