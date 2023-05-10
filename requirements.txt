@@ -1,4 +1,3 @@
 numpy
 tqdm
 dipy
-TIME-python
