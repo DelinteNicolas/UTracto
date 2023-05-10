@@ -23,8 +23,8 @@ from utracto.utils import mrtrix_fod_to_dipy
 
 
 def brain_tracking(Patient_files, params, seed_files=None, target_files=None,
-                   all_seed=False, dilate=[0, 0], in_fod=None,
-                   in_fod_from_mrtrix=False, angle_var=None,
+                   all_seed: bool = False, dilate=[0, 0], in_fod=None,
+                   in_fod_from_mrtrix: bool = False, angle_var=None,
                    wmfod=None, ptt: bool = False):
     '''
 
@@ -82,10 +82,6 @@ def brain_tracking(Patient_files, params, seed_files=None, target_files=None,
         csd_fit = csd_model.fit(data, mask=white_matter)
         fod = csd_fit.shm_coeff
 
-        # # Temp
-        # out = nib.Nifti1Image(csd_fit.shm_coeff, img.affine, img.header)
-        # out.to_filename('C:/users/nicol/Desktop/disco_dipy_fod.nii.gz')
-
     else:
         fod = in_fod
 
@@ -112,10 +108,6 @@ def brain_tracking(Patient_files, params, seed_files=None, target_files=None,
     if in_fod_from_mrtrix:
         print('Tournier convention used for SH')
 
-        # # Temp
-        # out = nib.Nifti1Image(fod, img.affine, img.header)
-        # out.to_filename('C:/users/nicol/Desktop/disco_mrtrix_dipy_fod.nii.gz')
-
         fod = mrtrix_fod_to_dipy(fod)
 
     if ptt:
@@ -124,7 +116,8 @@ def brain_tracking(Patient_files, params, seed_files=None, target_files=None,
         pmf = fod.clip(min=0)
         prob_dg = PTTDirectionGetter.from_pmf(pmf,
                                               max_angle=params['max_angle'],
-                                              probe_length=0.5,
+                                              probe_length=params['probe_length'],
+                                              probe_radius=params['probe_radius'],
                                               sphere=default_sphere)
 
     elif angle_var is None:
