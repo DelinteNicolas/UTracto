@@ -5,8 +5,8 @@
 """
 
 import numpy as np
-from utils import *
 from scipy.ndimage import gaussian_filter
+from biname.utils import erosion
 
 
 def wmfod_to_angle(wmfod, max_value: int = 30, min_value: int = 15,
@@ -56,7 +56,7 @@ def wmfod_to_angle(wmfod, max_value: int = 30, min_value: int = 15,
     del params['wmfod']
     angle_array = np.where(wmfod[:, :, :, 0] > wm_edge, min_value, max_value)
     mask = np.where(wmfod[:, :, :, 0] > interface, 1, 0)
-    eroded_mask = erode3D(mask.copy(), interface_thickness)
+    eroded_mask = erosion(mask.copy(), interface_thickness)
     tot_mask = mask-eroded_mask
     angle_array[tot_mask == 1] = max_value
     sumfod = np.max(abs(wmfod), axis=3)
