@@ -1,6 +1,10 @@
 # U-fiber tractography
 
-Welcome to the UTracto's Github repository! 
+Welcome to the UTracto's Github repository!
+
+[![PyPI](https://img.shields.io/pypi/v/utracto?label=pypi%20package)](https://pypi.org/project/utracto/)
+[![PyPI - Downloads](https://img.shields.io/pypi/dm/utracto)](https://pypi.org/project/utracto/)
+![GitHub repo size](https://img.shields.io/github/repo-size/DelinteNicolas/utracto)
 
 ## Description
 
