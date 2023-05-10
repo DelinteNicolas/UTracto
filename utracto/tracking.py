@@ -22,10 +22,10 @@ from binama.utils import dilation
 from utracto.utils import mrtrix_fod_to_dipy
 
 
-def brainTracking(Patient_files, params, seed_files=None, target_files=None,
-                  all_seed=False, dilate=[0, 0], in_fod=None,
-                  in_fod_from_mrtrix=False, angle_var=None,
-                  wmfod=None, ptt: bool = False):
+def brain_tracking(Patient_files, params, seed_files=None, target_files=None,
+                   all_seed=False, dilate=[0, 0], in_fod=None,
+                   in_fod_from_mrtrix=False, angle_var=None,
+                   wmfod=None, ptt: bool = False):
     '''
 
 
@@ -56,13 +56,14 @@ def brainTracking(Patient_files, params, seed_files=None, target_files=None,
 
     else:
 
-        mask_data, white_matter = median_otsu(data, vol_idx=[0, 1], median_radius=4, numpass=2,
+        mask_data, white_matter = median_otsu(data, vol_idx=[0, 1],
+                                              median_radius=4, numpass=2,
                                               autocrop=False, dilate=1)
         # white_matter=load_nifti_data(root+Patient+mas_dir+Patient+'_wm_mask'+'.nii.gz')
 
         seed_mask = white_matter
 
-    if seed_files != None:
+    if seed_files is not None:
         if type(seed_files[0]) == str:
             seed_mask = load_nifti_data(seed_files[0]+'.nii.gz')
             for i in range(1, len(seed_files)):
@@ -121,7 +122,8 @@ def brainTracking(Patient_files, params, seed_files=None, target_files=None,
 
         fod = csd_fit.odf(default_sphere)
         pmf = fod.clip(min=0)
-        prob_dg = PTTDirectionGetter.from_pmf(pmf, max_angle=params['max_angle'],
+        prob_dg = PTTDirectionGetter.from_pmf(pmf,
+                                              max_angle=params['max_angle'],
                                               probe_length=0.5,
                                               sphere=default_sphere)
 
@@ -144,7 +146,7 @@ def brainTracking(Patient_files, params, seed_files=None, target_files=None,
                                          affine, step_size=params['step_size'])
     streamlines = Streamlines(streamline_generator)
 
-    if target_files != None:
+    if target_files is not None:
         for i, target_file in enumerate(target_files):
             if len(dilate[1]) > 1:
                 dilat = dilate[1][i]
