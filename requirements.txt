@@ -1,3 +1,6 @@
+dipy
+nibabel
 numpy
 tqdm
-dipy
+pilab-binama
+unravel-python

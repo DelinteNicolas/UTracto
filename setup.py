@@ -29,6 +29,7 @@ setup(
                       'numpy',
                       'tqdm',
 			    'pilab-binama',
+			    'unravel-python',
                       ],
 
     classifiers=['Development Status :: 4 - Beta',

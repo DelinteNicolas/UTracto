@@ -9,7 +9,7 @@ from tqdm import tqdm
 from dipy.data import get_sphere
 from dipy.reconst.shm import sh_to_sf, sf_to_sh
 from dipy.io.streamline import load_tractogram, save_tractogram
-from TIME.core import angle_difference
+from unravel.core import angle_difference
 
 
 def _flip_m_neg(sh, sh_order: int, full_basis: bool = False):
@@ -176,7 +176,7 @@ def fix_angle(trk_file: str, out_file: str = None, max_angle: int = 30):
         v1 = (point-previous_point)
         v2 = (next_point-point)
 
-        ang = angle_difference(v1, v2)
+        ang = angle_difference(v1, v2, direction=True)
 
         if ang > max_angle:
 
