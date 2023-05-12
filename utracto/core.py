@@ -33,7 +33,7 @@ def wmfod_to_angle(wmfod, max_value: int = 30, min_value: int = 15,
         and white mater. The default is 0.08.
     interface_thickness : int, optional
         Thickness of the grey/white matter interface. The default is 3.
-    wm_deep : TYPE, optional
+    wm_deep : float, optional
         Value above which we are in deep white matter. The default is 0.35.
     smooth_factor : float, optional
         Gaussian filter factor. The default is .85.
